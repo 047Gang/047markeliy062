@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mark Priamorukov — Music Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Elegant script + geometric display for neon -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#071019; /* deep navy */
+      --panel:#0d1b24;
+      --neon-1: #6ef3ff; /* cyan */
+      --neon-2: #b26eff; /* purple */
+      --accent: #9ef0b8; /* subtle green */
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --max-w: 1000px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100%;
+      font-family: 'Montserrat', system-ui, -apple-system, 'Roboto', 'Segoe UI', sans-serif;
+      background: radial-gradient(1000px 800px at 10% 10%, rgba(110,243,255,0.03), transparent),
+                  radial-gradient(800px 600px at 90% 90%, rgba(178,110,255,0.03), transparent),
+                  var(--bg);
+      color:#dbefff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--max-w);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:36px;
+      box-shadow: 0 10px 40px rgba(3,6,15,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:start;
+      backdrop-filter: blur(6px) saturate(1.05);
+    }
+
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr; padding:28px}
+    }
+
+    /* Header */
+    .hero{
+      padding:12px 6px;
+    }
+    .title{
+      font-family: 'Great Vibes', cursive;
+      font-size:48px;
+      margin:0 0 6px 0;
+      letter-spacing:1px;
+      text-shadow: 0 2px 12px rgba(110,243,255,0.12), 0 0 28px rgba(178,110,255,0.06);
+      color: linear-gradient(90deg,var(--neon-1),var(--neon-2));
+      position:relative;
+    }
+
+    /* neon effect for name */
+    .neon-name{
+      display:inline-block;
+      font-size:44px;
+      font-weight:800;
+      color:var(--neon-1);
+      text-transform:none;
+      letter-spacing:0.6px;
+      text-shadow:
+        0 0 6px rgba(110,243,255,0.85),
+        0 0 12px rgba(110,243,255,0.55),
+        0 8px 30px rgba(110,243,255,0.06);
+    }
+
+    .role{
+      font-size:14px;
+      color:#bfe9ff;
+      margin-top:6px;
+      font-weight:500;
+      opacity:0.9;
+    }
+
+    .about{
+      margin-top:18px;
+      line-height:1.6;
+      color:#e6f7ff;
+      font-size:16px;
+      max-width:780px;
+    }
+
+    /* right column */
+    .side{
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,0.02);
+      height:100%;
+    }
+
+    .card-section{
+      margin-bottom:18px;
+    }
+    .label{font-size:12px; text-transform:uppercase; letter-spacing:1.8px; color:#9ccfe6}
+
+    .links a{
+      display:inline-block;
+      margin-top:10px;
+      text-decoration:none;
+      font-weight:600;
+      color:var(--neon-2);
+      padding:8px 12px;
+      border-radius:8px;
+      border:1px solid rgba(178,110,255,0.12);
+      background: linear-gradient(180deg, rgba(178,110,255,0.03), rgba(178,110,255,0.01));
+      box-shadow: 0 6px 18px rgba(178,110,255,0.04);
+    }
+
+    .insta{display:flex; align-items:center; gap:10px}
+    .insta .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(45deg,var(--neon-1),var(--neon-2)); box-shadow:0 6px 18px rgba(178,110,255,0.04)}
+
+    /* subtle animated underline for headings */
+    h3{margin:0 0 8px 0}
+    .glow-title{
+      font-size:18px;
+      margin-bottom:8px;
+      letter-spacing:0.6px;
+    }
+
+    /* footer */
+    .footer-note{font-size:12px; color:#98c7d6; opacity:0.9}
+
+    /* small decorative frame */
+    .frame{
+      position:relative;
+      padding:12px;
+      border-radius:10px;
+      background: linear-gradient(90deg, rgba(110,243,255,0.02), rgba(178,110,255,0.02));
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* 'neon line' separator */
+    .sep{height:2px; border-radius:4px; background: linear-gradient(90deg,var(--neon-1),var(--neon-2)); box-shadow:0 6px 24px rgba(110,243,255,0.06); margin:16px 0}
+
+    /* small buttons */
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      letter-spacing:0.6px;
+      border:1px solid rgba(255,255,255,0.03);
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+    }
+
+    /* Accessibility: focus */
+    a:focus{outline:3px solid rgba(110,243,255,0.14); outline-offset:3px}
+
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <section class="hero" aria-labelledby="name">
+      <h1 id="name" class="title"><span class="neon-name">Mark Priamorukov</span></h1>
+      <div class="role">Music Engineer</div>
+
+      <p class="about">Привет — я Mark Priamorukov, звукорежиссёр и музыкальный инженер. Я работаю с записью, сведением и мастерингом треков. Если хочешь отправить трек — пиши в Instagram или оставь ссылку.</p>
+
+      <div class="sep" aria-hidden="true"></div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn" href="#contact">Контакты</a>
+        <a class="btn" href="#music">Музыка</a>
+      </div>
+    </section>
+
+    <aside class="side" aria-labelledby="contact">
+      <div class="card-section frame">
+        <div class="glow-title">Контакты</div>
+        <div class="insta">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <div style="font-weight:700">Instagram</div>
+            <div style="margin-top:6px"><a href="https://instagram.com/047markeliy" target="_blank" rel="noopener noreferrer" class="links">@047markeliy</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="glow-title">О сервисе</div>
+        <div style="font-size:14px;color:#cfefff;line-height:1.5">Запись • Сведение • Мастеринг.</div>
+      </div>
+
+      <div class="card-section">
+        <div class="glow-title">Ссылки</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <a class="links" href="#" aria-disabled="true">Примеры треков (загрузите свои файлы)</a>
+          <a class="links" href="mailto:mark.priamorukov@example.com">Email (placeholder)</a>
+        </div>
+      </div>
+
+      <div class="card-section" style="margin-top:auto">
+        <div class="footer-note">Сайт сделан для GitHub Pages — просто сохраните этот файл как <code>index.html</code> и загрузите в репозиторий.</div>
+      </div>
+    </aside>
+
+    <!-- mobile-only music block under main area -->
+    <section id="music" style="grid-column:1 / -1; margin-top:10px;">
+      <div class="frame card-section">
+        <h3 class="glow-title">Музыка</h3>
+        <p style="margin:0 0 12px 0; color:#dffaff;">Здесь можно. Я оставил заглушку — добавь свои ссылки или встрой фрейм сервиса (SoundCloud, Bandcamp, YouTube).</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="links" href="#" aria-disabled="true">Track 1 (placeholder)</a>
+          <a class="links" href="#" aria-disabled="true">Track 2 (placeholder)</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html
