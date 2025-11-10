@@ -6,15 +6,14 @@
   <title>Mark Priamorukov — Music Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Elegant script + geometric display for neon -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#071019; /* deep navy */
+      --bg:#071019;
       --panel:#0d1b24;
-      --neon-1: #6ef3ff; /* cyan */
-      --neon-2: #b26eff; /* purple */
-      --accent: #9ef0b8; /* subtle green */
+      --neon-1: #6ef3ff;
+      --neon-2: #b26eff;
+      --accent: #9ef0b8;
       --glass: rgba(255,255,255,0.03);
       --glass-2: rgba(255,255,255,0.02);
       --max-w: 1000px;
@@ -56,9 +55,14 @@
       .card{grid-template-columns:1fr; padding:28px}
     }
 
-    /* Header */
-    .hero{
-      padding:12px 6px;
+    .hero{padding:12px 6px;text-align:left}
+    .photo{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      border:2px solid var(--neon-1);
+      box-shadow:0 0 20px var(--neon-1);
+      margin-bottom:20px;
     }
     .title{
       font-family: 'Great Vibes', cursive;
@@ -66,11 +70,11 @@
       margin:0 0 6px 0;
       letter-spacing:1px;
       text-shadow: 0 2px 12px rgba(110,243,255,0.12), 0 0 28px rgba(178,110,255,0.06);
-      color: linear-gradient(90deg,var(--neon-1),var(--neon-2));
-      position:relative;
     }
-
-    /* neon effect for name */
+    @keyframes neonPulse {
+      0%,100% { text-shadow: 0 0 8px var(--neon-1), 0 0 24px var(--neon-2); }
+      50% { text-shadow: 0 0 14px var(--neon-2), 0 0 40px var(--neon-1); }
+    }
     .neon-name{
       display:inline-block;
       font-size:44px;
@@ -78,152 +82,72 @@
       color:var(--neon-1);
       text-transform:none;
       letter-spacing:0.6px;
-      text-shadow:
-        0 0 6px rgba(110,243,255,0.85),
-        0 0 12px rgba(110,243,255,0.55),
-        0 8px 30px rgba(110,243,255,0.06);
+      animation: neonPulse 4s infinite ease-in-out;
     }
-
-    .role{
-      font-size:14px;
-      color:#bfe9ff;
-      margin-top:6px;
-      font-weight:500;
-      opacity:0.9;
-    }
-
-    .about{
-      margin-top:18px;
-      line-height:1.6;
-      color:#e6f7ff;
-      font-size:16px;
-      max-width:780px;
-    }
-
-    /* right column */
-    .side{
-      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:20px;
-      border:1px solid rgba(255,255,255,0.02);
-      height:100%;
-    }
-
-    .card-section{
-      margin-bottom:18px;
-    }
-    .label{font-size:12px; text-transform:uppercase; letter-spacing:1.8px; color:#9ccfe6}
-
-    .links a{
-      display:inline-block;
-      margin-top:10px;
-      text-decoration:none;
-      font-weight:600;
-      color:var(--neon-2);
-      padding:8px 12px;
-      border-radius:8px;
-      border:1px solid rgba(178,110,255,0.12);
-      background: linear-gradient(180deg, rgba(178,110,255,0.03), rgba(178,110,255,0.01));
-      box-shadow: 0 6px 18px rgba(178,110,255,0.04);
-    }
-
-    .insta{display:flex; align-items:center; gap:10px}
-    .insta .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(45deg,var(--neon-1),var(--neon-2)); box-shadow:0 6px 18px rgba(178,110,255,0.04)}
-
-    /* subtle animated underline for headings */
-    h3{margin:0 0 8px 0}
-    .glow-title{
-      font-size:18px;
-      margin-bottom:8px;
-      letter-spacing:0.6px;
-    }
-
-    /* footer */
-    .footer-note{font-size:12px; color:#98c7d6; opacity:0.9}
-
-    /* small decorative frame */
-    .frame{
-      position:relative;
-      padding:12px;
-      border-radius:10px;
-      background: linear-gradient(90deg, rgba(110,243,255,0.02), rgba(178,110,255,0.02));
-      border:1px solid rgba(255,255,255,0.02);
-    }
-
-    /* 'neon line' separator */
-    .sep{height:2px; border-radius:4px; background: linear-gradient(90deg,var(--neon-1),var(--neon-2)); box-shadow:0 6px 24px rgba(110,243,255,0.06); margin:16px 0}
-
-    /* small buttons */
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      padding:10px 14px;
-      border-radius:10px;
-      font-weight:700;
-      letter-spacing:0.6px;
-      border:1px solid rgba(255,255,255,0.03);
-      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-    }
-
-    /* Accessibility: focus */
-    a:focus{outline:3px solid rgba(110,243,255,0.14); outline-offset:3px}
-
+    .role{font-size:14px;color:#bfe9ff;margin-top:6px;font-weight:500;opacity:0.9;}
+    .tagline{font-size:13px;opacity:0.8;margin-top:4px;letter-spacing:1px}
+    .about{margin-top:18px;line-height:1.6;color:#e6f7ff;font-size:16px;max-width:780px;}
+    .side{background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.02);height:100%;}
+    .card-section{margin-bottom:18px;}
+    .glow-title{font-size:18px;margin-bottom:8px;letter-spacing:0.6px;}
+    .frame{position:relative;padding:12px;border-radius:10px;background: linear-gradient(90deg, rgba(110,243,255,0.02), rgba(178,110,255,0.02));border:1px solid rgba(255,255,255,0.02);}
+    .sep{height:2px;border-radius:4px;background: linear-gradient(90deg,var(--neon-1),var(--neon-2));box-shadow:0 6px 24px rgba(110,243,255,0.06);margin:16px 0}
+    .btn{display:inline-block;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:700;letter-spacing:0.6px;border:1px solid rgba(255,255,255,0.03);background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));transition: all 0.25s ease;}
+    .btn:hover{border-color: var(--neon-1);color: var(--neon-1);box-shadow: 0 0 8px var(--neon-1);transform: translateY(-2px);}
+    .links a,.links{display:inline-block;margin-top:10px;text-decoration:none;font-weight:600;color:var(--neon-2);padding:8px 12px;border-radius:8px;border:1px solid rgba(178,110,255,0.12);background: linear-gradient(180deg, rgba(178,110,255,0.03), rgba(178,110,255,0.01));box-shadow: 0 6px 18px rgba(178,110,255,0.04);transition: all 0.25s ease;}
+    .links:hover{box-shadow: 0 0 10px var(--neon-2);transform: translateY(-2px);}
+    .footer-note{font-size:12px;color:#98c7d6;opacity:0.9}
   </style>
 </head>
 <body>
   <main class="card" role="main">
     <section class="hero" aria-labelledby="name">
+      <img src="c44bbc81-34db-447b-91c7-941927442845.png" alt="Mark Priamorukov" class="photo">
       <h1 id="name" class="title"><span class="neon-name">Mark Priamorukov</span></h1>
       <div class="role">Music Engineer</div>
-
+      <div class="tagline">sound // smoke // silence</div>
       <p class="about">Привет — я Mark Priamorukov
  Єдине, чого я боюся це відображення в дзеркалі.
-
 Единственное, чего я боюсь это отражение в зеркале.
-
 Det eneste jeg er redd for, er speilbildet mitt.
-
 The only thing I fear is my reflection in the mirror.</p>
-
       <div class="sep" aria-hidden="true"></div>
-
       <div style="display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn" href="#contact">Контакты</a>
         <a class="btn" href="#music">Музыка</a>
       </div>
+      <div style="margin-top:20px;font-style:italic;opacity:0.8;">“Мои треки — это не просто звук, это мой способ остаться честным.”</div>
     </section>
 
     <aside class="side" aria-labelledby="contact">
       <div class="card-section frame">
         <div class="glow-title">Контакты</div>
-        <div class="insta">
-          <div class="dot" aria-hidden="true"></div>
+        <div class="insta" style="display:flex;align-items:center;gap:10px;">
+          <div class="dot" style="width:10px;height:10px;border-radius:50%;background:linear-gradient(45deg,var(--neon-1),var(--neon-2));box-shadow:0 6px 18px rgba(178,110,255,0.04)"></div>
           <div>
             <div style="font-weight:700">Instagram</div>
             <div style="margin-top:6px"><a href="https://instagram.com/047markeliy" target="_blank" rel="noopener noreferrer" class="links">@047markeliy</a></div>
           </div>
         </div>
       </div>
-
       <div class="card-section">
-        <div class="glow-title"></div>
-        <div style="font-size:14px;color:#cfefff;line-height:1.5">•artist•</div>
+        <div class="glow-title">Email</div>
+        <a class="links" href="mailto:marikgg2@gmail.com">marikgg2@gmail.com</a>
       </div>
-
-      <div class="card-section">
-        <div class="glow-title"></div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-          <a class="links" href="#" aria-disabled="true"></a>
-          <a class="links" href="mailto:marikgg2@gmail.com">Email (placeholder)</a>
+      <div class="card-section frame">
+        <div class="glow-title">Соцсети</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="links" href="https://soundcloud.com/047markeliy" target="_blank">🎧 SoundCloud</a>
+          <a class="links" href="#" target="_blank">🔥 Spotify</a>
+          <a class="links" href="#" target="_blank">📺 YouTube</a>
         </div>
       </div>
-
       <div class="card-section" style="margin-top:auto">
         <div class="footer-note">Я курю закат, чтоб не видеть тоску рассвета.</div>
       </div>
     </aside>
 
-    <!-- mobile-only music block under main area -->
     <section id="music" style="grid-column:1 / -1; margin-top:10px;">
       <div class="frame card-section">
         <h3 class="glow-title">Музыка</h3>
@@ -234,7 +158,6 @@ The only thing I fear is my reflection in the mirror.</p>
         </div>
       </div>
     </section>
-
   </main>
 </body>
-</html
+</html>
