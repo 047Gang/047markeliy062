@@ -119,11 +119,77 @@
     .links,.btn{ transition: all .25s ease; }
     .links:hover{ transform:translateY(-2px); box-shadow:0 0 10px var(--neon-2); }
 
+  
+    /* ✦ Neon Edge Lines ✦ */
+    .neon-edges::before, .neon-edges::after{
+      content:"";
+      position:absolute;
+      left:0; right:0;
+      height:2px;
+      background:linear-gradient(90deg,var(--neon-1),var(--neon-2));
+      box-shadow:0 0 20px var(--neon-1);
+      animation: edgeGlow 5s infinite linear;
+    }
+    .neon-edges::before{ top:0; }
+    .neon-edges::after{ bottom:0; }
+
+    @keyframes edgeGlow{
+      0%{opacity:0.4}
+      50%{opacity:1}
+      100%{opacity:0.4}
+    }
+
+    /* ✦ Typewriter Text ✦ */
+    .typewriter{
+      overflow:hidden;
+      white-space:nowrap;
+      border-right:2px solid var(--neon-1);
+      width:0;
+      animation: typing 4s steps(40) forwards, blink 0.6s infinite;
+    }
+
+    @keyframes typing{ to{ width:100%; } }
+    @keyframes blink{ 50%{ border-color:transparent } }
+
+    /* ✦ Parallax 3D Hover ✦ */
+    .card{
+      transform-style:preserve-3d;
+      transition: transform .3s ease;
+    }
+    body:hover .card{
+      transform:rotateY(calc(var(--mx,0) * 10deg)) rotateX(calc(var(--my,0) * -10deg));
+    }
+
+    /* ✦ Neon Fog Background ✦ */
+    .fog{
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      pointer-events:none;
+      background:radial-gradient(circle at 20% 80%, rgba(110,243,255,0.06), transparent),
+                 radial-gradient(circle at 80% 20%, rgba(178,110,255,0.06), transparent);
+      animation:fogMove 12s infinite alternate ease-in-out;
+      z-index:-1;
+    }
+
+    @keyframes fogMove{
+      0%{ transform:translateX(0) }
+      100%{ transform:translateX(40px) }
+    }
+
   </style>
 </head>
 <body>
+  <div class="fog"></div>
   <!-- ✦ Auto-generated floating particles -->
   <script>
+    /* ✦ 3D Parallax Mouse Tracking ✦ */
+    document.addEventListener('mousemove', e =>{
+      const x = (e.clientX / window.innerWidth) - 0.5;
+      const y = (e.clientY / window.innerHeight) - 0.5;
+      document.body.style.setProperty('--mx', x);
+      document.body.style.setProperty('--my', y);
+    });
+
     for(let i=0;i<25;i++){
       const p=document.createElement('div');
       p.className='particle';
@@ -140,19 +206,38 @@
     <section class="hero" aria-labelledby="name">
       <div class="photo-container"><img src="img/avatar.png" class="photo"></div>
       <h1 class="title"><span class="neon-name">Mark Priamorukov</span></h1>
-      <p class="about">Привет я Mark Priamorukov<br>Єдине, чого я боюся це відображення в дзеркалі.<br>Единственное, чего я боюсь это отражение в зеркале.<br>Det eneste jeg er redd for, er speilbildet mitt.<br>The only thing I fear is my reflection in the mirror.</p>
+      <p class="about typewriter">Привет я Mark Priamorukov<br>Єдине, чого я боюся це відображення в дзеркалі.<br>Единственное, чего я боюсь это отражение в зеркале.<br>Det eneste jeg er redd for, er speilbildet mitt.<br>The only thing I fear is my reflection in the mirror.</p>
       <div class="sep"></div>
       <div class="quote">"Мои треки это не просто звук, это мой способ остаться честным."</div>
     </section>
 
     <aside class="side">
-      <div class="card-section">
+      <div class="card-section frame">
         <div class="glow-title">Контакты</div>
-        <a class="links" href="https://instagram.com/047markeliy">@047markeliy</a>
+        <div class="insta">
+          <div class="dot"></div>
+          <div>
+            <div style="font-weight:700">Instagram</div>
+            <div style="margin-top:6px">
+              <a href="https://instagram.com/047markeliy" target="_blank" rel="noopener noreferrer" class="links">@047markeliy</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card-section">
+      <div class="card-section frame">
         <div class="glow-title">Email</div>
         <a class="links" href="mailto:marikgg2@gmail.com">marikgg2@gmail.com</a>
+      </div>
+      <div class="card-section frame">
+        <div class="glow-title">Соцсети</div>
+        <div class="social-links">
+          <a class="links" href="https://soundcloud.com/047markeliy" target="_blank">🎧 SoundCloud</a>
+          <a class="links" href="https://open.spotify.com/artist/1Nmq7XIs5LJQluwOJz0PMh" target="_blank">🔥 Spotify</a>
+          <a class="links" href="https://www.youtube.com/channel/UCkWIDc-EdzzvlUq7_vig3LA" target="_blank">📺 YouTube</a>
+        </div>
+      </div>
+      <div class="card-section">
+        <div class="footer-note">Я курю закат, чтоб не видеть тоску рассвета.</div>
       </div>
     </aside>
   </main>
