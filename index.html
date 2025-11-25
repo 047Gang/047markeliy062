@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- Updated version with suggested visual improvements integrated -->
+<!-- Note: This file contains enhanced readability, spacing, improved neon consistency, and balanced layout tweaks. -->
 <html lang="ru">
 <head>
   <meta charset="utf-8">
@@ -18,7 +20,7 @@
       --glass-2: rgba(255,255,255,0.02);
       --max-w: 1000px;
     }
-    *{box-sizing:border-box; cursor:url('cursor.png'), auto;}
+    *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
@@ -35,32 +37,6 @@
       padding:26px;
       overflow:hidden;
     }
-
-    /* Loader */
-    #loader{
-      position:fixed;
-      inset:0;
-      background:var(--bg);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-      animation: fadeOut 1.8s ease forwards;
-      animation-delay:1.8s;
-    }
-
-    .loader-circle{
-      width:70px;
-      height:70px;
-      border:3px solid var(--neon-1);
-      border-top-color:transparent;
-      border-radius:50%;
-      animation: spin 1.2s linear infinite;
-      filter:drop-shadow(0 0 8px var(--neon-1));
-    }
-
-    @keyframes spin{ to{transform:rotate(360deg);} }
-    @keyframes fadeOut{ to{ opacity:0; visibility:hidden;} }
 
     /* Floating particles */
     .particle{
@@ -86,7 +62,7 @@
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border-radius:20px;
       padding:40px;
-      box-shadow:0 10px 40px rgba(3,6,15,0.8), inset 0 1px 0 rgba(255,255,255,0.04);
+      box-shadow: 0 10px 40px rgba(3,6,15,0.8), inset 0 1px 0 rgba(255,255,255,0.04);
       border:1px solid rgba(255,255,255,0.04);
       display:grid;
       grid-template-columns: 1fr 360px;
@@ -103,6 +79,7 @@
     @media(max-width:880px){ .card{ grid-template-columns:1fr; padding:26px; gap:26px; } }
     @media(max-width:480px){ .card{ padding:20px; } body{ padding:12px; } }
 
+    /* Left half */
     .photo-container{ margin-bottom:22px; }
     .photo{
       width:140px;
@@ -123,9 +100,6 @@
     .neon-name{ color:var(--neon-1); font-weight:800; text-shadow:0 0 14px var(--neon-1); }
 
     .about{ margin-top:20px; line-height:1.7; font-size:16px; }
-    .about span{ opacity:0; display:block; animation: typing 0.6s ease forwards; }
-
-    @keyframes typing{ to{ opacity:1; transform:translateX(0);} }
 
     .sep{
       height:2px;
@@ -134,6 +108,7 @@
       box-shadow:0 6px 30px rgba(110,243,255,0.1);
     }
 
+    /* Side panel */
     .side{
       padding:22px;
       border-radius:16px;
@@ -157,15 +132,14 @@
     }
 
     .social-links a{ display:block; margin-bottom:6px; }
+
     .quote{ opacity:0.85; font-style:italic; }
+
     .footer-note{ margin-top:16px; opacity:0.7; }
 
   </style>
 </head>
 <body>
-
-  <div id="loader"><div class="loader-circle"></div></div>
-
   <script>
     document.addEventListener('mousemove', e =>{
       const x=(e.clientX/window.innerWidth)-0.5;
@@ -182,11 +156,6 @@
       p.style.animationDelay=(Math.random()*10)+'s';
       document.body.appendChild(p);
     }
-
-    window.addEventListener('load',()=>{
-      const lines=document.querySelectorAll('.about span');
-      lines.forEach((l,i)=>{ l.style.animationDelay=(i*0.5)+'s'; });
-    });
   </script>
 
   <main class="card">
@@ -195,11 +164,34 @@
       <h1 class="title"><span class="neon-name">Mark Priamorukov</span></h1>
 
       <p class="about">
-        <span>Привет я Mark Priamorukov</span>
-        <span>Єдине, чого я боюся це відображення в дзеркалі.</span>
-        <span>Единственное, чего я боюсь — это отражение в зеркале.</span>
-        <span>Det eneste jeg er redd for, er speilbildet mitt.</span>
-        <span>The only thing I fear is my reflection in the mirror.</span>
+        Привет я Mark Priamorukov<br>
+        Єдине, чого я боюся це відображення в дзеркалі.<br>
+        Единственное, чего я боюсь — это отражение в зеркале.<br>
+        Det eneste jeg er redd for, er speilbildet mitt.<br>
+        The only thing I fear is my reflection in the mirror.
       </p>
 
       <div class="sep"></div>
+      <div class="quote">"Мои треки — это не просто звук, это мой способ остаться честным."</div>
+    </section>
+
+    <aside class="side">
+      <div class="glow-title">Контакты</div>
+      <a class="links" href="https://instagram.com/047markeliy" target="_blank">Instagram: @047markeliy</a>
+
+      <div class="glow-title" style="margin-top:14px">Email</div>
+      <a class="links" href="mailto:marikgg2@gmail.com">marikgg2@gmail.com</a>
+
+      <div class="glow-title" style="margin-top:14px">Соцсети</div>
+      <div class="social-links">
+        <a class="links" href="https://soundcloud.com/047markeliy" target="_blank">SoundCloud</a>
+        <a class="links" href="https://open.spotify.com/artist/1Nmq7XIs5LJQluwOJz0PMh" target="_blank">Spotify</a>
+        <a class="links" href="https://www.youtube.com/channel/UCkWIDc-EdzzvlUq7_vig3LA" target="_blank">YouTube</a>
+      </div>
+
+      <div class="footer-note">Я курю закат, чтоб не видеть тоску рассвета.</div>
+    </aside>
+
+  </main>
+</body>
+</html>
